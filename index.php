@@ -1,5 +1,23 @@
 <?php
+    class Movie {
+        public $title;
+        public $director;
 
+        function __construct($title, $director)
+        {
+            $this -> title = $title;
+            $this -> director = $title;
+        }
+
+        function printInfo () {
+            echo "Title: {$this -> title} - Director: {$this -> director}";
+        }
+    }
+   $movie1 = new Movie("American Psycho", "Mary Harron");
+   $movie2 = new Movie("The Wolf of Wall Street", "Martin Scorsese");
+
+   $movie1 -> printInfo();
+   $movie2 -> printInfo();
 ?>
 
 <!DOCTYPE html>
