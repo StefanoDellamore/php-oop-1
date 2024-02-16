@@ -2,19 +2,23 @@
     class Movie {
         public $title;
         public $director;
+        public $genres;
 
-        function __construct($title, $director)
+        function __construct($title, $director, $genres)
         {
             $this -> title = $title;
-            $this -> director = $title;
+            $this -> director = $director;
+            $this -> genres = $genres;
+
+            $this->genres = is_array($genres) ? $genres : [$genres];
         }
 
         function printInfo () {
-            echo "Title: {$this -> title} - Director: {$this -> director}";
+            echo "Film: {$this->title} - Regista: {$this->director} - Generi: " . implode(", ", $this->genres) . "<br>";
         }
     }
-   $movie1 = new Movie("American Psycho", "Mary Harron");
-   $movie2 = new Movie("The Wolf of Wall Street", "Martin Scorsese");
+   $movie1 = new Movie("American Psycho", "Mary Harron", ["thriller"]);
+   $movie2 = new Movie("The Wolf of Wall Street", "Martin Scorsese", ["Crime", "Drammatico", "Commedia"]);
 
    $movie1 -> printInfo();
    $movie2 -> printInfo();
